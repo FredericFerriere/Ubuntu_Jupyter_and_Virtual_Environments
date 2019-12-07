@@ -32,6 +32,7 @@ $ sudo pip3 install jupyter
 ## 3. Running Jupyter Server
 
 * The Jupyter server runs on port 8888, so we'll need to change our security group accordingly. In Inbound Rules, select Type Custom TCP on Port 8888, source Anywhere.
+
 * To launch the Jupyter server from the Ubuntu machine, 2 options:
  1. $ jupyter notebook --no-browser --ip=0.0.0.0
  2. $ nohup jupyter notebook --no-browser -ip=0.0.0.0 &  
@@ -44,6 +45,8 @@ Just replace <i>ip-10-10-10-5</i> with the public IP of your Ubuntu instance and
 
 
 ## 4. Creating Virtual Environments
+
+You have the choice between the 3 below options. The one that worked best for me was Conda, but it should be down to personal preferences.
 
 ### Using venv
 
@@ -127,10 +130,10 @@ We can export this to a text file so that a user may himself run a pip command o
 
 * Saving the list of packages into a text file
 
-WITH YOUR VIRTUAL ENVIRONMENT ACTIVATED:  
+  WITH YOUR VIRTUAL ENVIRONMENT ACTIVATED:  
   $ pip freeze > myPackages.txt
 
 * Recreating a virtual environment with all the packages listed in myPackages.text
 
-A user wanting to run your code with the same package versions you used for development would then only need to run (from their own virtual environment):  
-$ pip install -r myPackages.text
+  A user wanting to run your code with the same package versions you used for development would then only need to run (from their own virtual environment):  
+  $ pip install -r myPackages.text
