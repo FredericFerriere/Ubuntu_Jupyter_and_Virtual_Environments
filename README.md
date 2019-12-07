@@ -5,7 +5,7 @@ Jupyter will be run in server mode so we can remotely work on Python scripts jus
 
 ## Introduction: why create virtual environments?
 
-Python comes in different versions (2.7, 3.6, etc) and so do Python packages. Furthermore, some Python packages may rely on specific versions of other packages. This creates strong dependencies, and sometimes incompatibilities. In the long run, different projects may require different package versions, and installing all packages in the same environment may lead to inconsistencies. Virtual environments allow you to avoid this long term issue, by isolating packages and Python versions when you work on a project.
+Python comes in different versions (2.7, 3.6, etc) and so do Python packages. Furthermore, some Python packages may rely on specific versions of other packages. This creates strong dependencies, and sometimes incompatibilities. In the long run, different projects may require different package versions, and installing all packages in the same environment may lead to inconsistencies. Virtual environments allow you to avoid this long term issue, by isolating packages and Python versions when you work on a project. They will also ensure your code will work on different machines, regardless of the package versions that were installed on those machines.
 
 
 ## AWS Architecture
@@ -48,15 +48,15 @@ Just replace <i>ip-10-10-10-5</i> with the public IP of your Ubuntu instance and
 
 * Installation
 
-$ sudo apt-get install python3-venv
+  $ sudo apt-get install python3-venv
 
 * Creating a new virtual Environments called venvVirtualTest
 
-$ python3 -m venv venvVirtualTest
+  $ python3 -m venv venvVirtualTest
 
 * Activating the virtual environment
 
-$ source venvVirtualTest/bin/activate
+  $ source venvVirtualTest/bin/activate
 
 ### Using Conda
 
@@ -70,11 +70,11 @@ $ source venvVirtualTest/bin/activate
 
 * Creating a new virtual Environments called condaVirtualTest
 
-$ conda create -n condaVirtualTest
+  $ conda create -n condaVirtualTest
 
 * Activating the virtual Environment
 
-$ conda activate condaVirtualTest
+  $ conda activate condaVirtualTest
 
 ![](Ubuntu_conda_VE.png)
 
@@ -83,15 +83,15 @@ $ conda activate condaVirtualTest
 
 * Installation
 
-$ pip install pew
+  $ pip install pew
 
 * Creating a new virtual environment called pewVirtualTest
 
-$ pew new pewVirtualTest
+  $ pew new pewVirtualTest
 
 * activating the virtual environment
 
-$ pew workon pewVirtualTest
+  $ pew workon pewVirtualTest
 
 
 ## Installing packages in your virtual environments
@@ -102,20 +102,20 @@ With your virtual environment activated, from your Ubuntu machine or via a Jupyt
 
 Note: this step will have to repeated each time you create a new environment.
 
-$ pip install ipykernel
-$ ipython kernel install --user --name=condaVirtualTest
+  $ pip install ipykernel  
+  $ ipython kernel install --user --name=condaVirtualTest
 
 You can now create a new Jupyter notebook running under this virtual environment.
 
 ![](jupyter_condaVirtualEnv.png)
 
-Create a new notebook under this environment. The default list of packages that comes with your virtual environment might be limited. For example, pandas might not be included. You can check this running the following cell code:
+Create a new notebook under this environment. The default list of packages that comes with your virtual environment might be limited. For example, mysqlconnector might not be included. You can check this running the following cell code:
 import mysql.connector
 
 you might get an error message: ModuleNotFoundError: No module named 'mysql'
 
 All we have to do now is install the package in our virtual environment using pip install :
-$ pip install mysql-connector-python
+  $ pip install mysql-connector-python
 
 Go back to your jupyter notebook, rerun the cell import mysql.connector. You should not get an error anymore.
 
@@ -126,10 +126,10 @@ We can export this to a text file so that a user may himself run a pip command o
 
 * Saving the list of packages into a text file
 
-WITH YOUR VIRTUAL ENVIRONMENT ACTIVATED:
-$ pip freeze > myPackages.txt
+WITH YOUR VIRTUAL ENVIRONMENT ACTIVATED:  
+  $ pip freeze > myPackages.txt
 
 * Recreating a virtual environment with all the packages listed in myPackages.text
 
-A user wanting to run your code with the same package versions you used for development would then only need to run (from their own virtual environment):
-$ pip instal -r myPackages.text
+A user wanting to run your code with the same package versions you used for development would then only need to run (from their own virtual environment):  
+$ pip install -r myPackages.text
