@@ -1,4 +1,5 @@
 # Ubuntu_Jupyter_and_Virtual_Environments
+## Running a Jupyter server and working with virtual Environments
 
 In this project, we'll install Jupyter on an AWS Ubuntu machine and create virtual environments for our Jupyter notebooks.  
 Jupyter will be run in server mode so we can remotely work on Python scripts just connecting from a web browser.
