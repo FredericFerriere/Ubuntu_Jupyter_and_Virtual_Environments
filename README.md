@@ -9,13 +9,13 @@ Jupyter will be run in server mode so we can remotely work on Python scripts jus
 Python comes in different versions (2.7, 3.6, etc) and so do Python packages. Furthermore, some Python packages may rely on specific versions of other packages. This creates strong dependencies, and sometimes incompatibilities. In the long run, different projects may require different package versions, and installing all packages in the same environment may lead to inconsistencies. Virtual environments allow you to avoid this long term issue, by isolating packages and Python versions when you work on a project. They will also ensure your code will work on different machines, regardless of the package versions that were installed on those machines.
 
 
-## AWS Architecture
+## 1. AWS Architecture
 
 A VPC, with Internet Gateway and a public subnet whose route table allows internet routing via the Internet gateway.
 An EC2 instance of type Ubuntu server 18.04
 
 
-## Installing Jupyter on remote Ubuntu machine
+## 2. Installing Jupyter on remote Ubuntu machine
 
 Once connected to the instance:
 
@@ -29,7 +29,7 @@ Install Jupyter
 $ sudo pip3 install jupyter
 
 
-## Running Jupyter Server
+## 3. Running Jupyter Server
 
 * The Jupyter server runs on port 8888, so we'll need to change our security group accordingly. In Inbound Rules, select Type Custom TCP on Port 8888, source Anywhere.
 * To launch the Jupyter server from the Ubuntu machine, 2 options:
@@ -43,7 +43,7 @@ In both options, Ubuntu will provide an URL you need to paste in your browser. F
 Just replace <i>ip-10-10-10-5</i> with the public IP of your Ubuntu instance and paste this link in your web browser. You now have access to Jupyter notebooks/terminals running on a remote machine.
 
 
-## Creating Virtual Environments
+## 4. Creating Virtual Environments
 
 ### Using venv
 
@@ -95,7 +95,7 @@ Just replace <i>ip-10-10-10-5</i> with the public IP of your Ubuntu instance and
   $ pew workon pewVirtualTest
 
 
-## Installing packages in your virtual environments
+## 5. Installing packages in your virtual environments
 
 ### Making your virtual environment available from Jupyter notebooks
 
